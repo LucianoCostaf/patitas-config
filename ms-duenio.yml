@@ -22,6 +22,10 @@ management:
     env:
       access: unrestricted
 
+  info:
+    env:
+      enabled: true
+
 info:
   app:
     name: ms-duenio
