@@ -1,0 +1,33 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ms-turno
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/turno_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 5000
+
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+logging:
+  level:
+    com.patitas.msturno.adapters.out.feign: DEBUG
