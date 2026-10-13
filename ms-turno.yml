@@ -30,4 +30,4 @@ feign:
 
 logging:
   level:
-    com.patitas.msturno.adapters.out.feign: DEBUG
+    com.patitas.turno.adapter.out.feign: DEBUG
