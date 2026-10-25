@@ -42,3 +42,13 @@ spring:
               uri: lb://ms-turno
               predicates:
                 - Path=/api/turnos/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+
+  endpoint:
+    gateway:
+      enabled: true
