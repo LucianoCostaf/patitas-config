@@ -15,18 +15,19 @@ spring:
       ddl-auto: update
     show-sql: true
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 3000
-        readTimeout: 5000
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 3000
+            readTimeout: 5000
 
-  compression:
-    request:
-      enabled: true
-    response:
-      enabled: true
+      compression:
+        request:
+          enabled: true
+        response:
+          enabled: true
 
 logging:
   level:
