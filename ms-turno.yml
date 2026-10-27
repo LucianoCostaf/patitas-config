@@ -32,3 +32,15 @@ spring:
 logging:
   level:
     com.patitas.turno.adapter.out.feign: DEBUG
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      veterinarioService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
