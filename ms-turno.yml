@@ -33,6 +33,7 @@ logging:
   level:
     com.patitas.turno.adapter.out.feign: DEBUG
 
+
 resilience4j:
   circuitbreaker:
     instances:
@@ -53,6 +54,21 @@ resilience4j:
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 3
         slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      mascotaService:
+        maxAttempts: 3
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+
+      veterinarioService:
+        maxAttempts: 3
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+
         
 management:
   endpoints:
