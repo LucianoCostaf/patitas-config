@@ -36,6 +36,7 @@ logging:
 
 resilience4j:
   circuitbreaker:
+  circuitBreakerAspectOrder: 1
     instances:
       mascotaService:
         registerHealthIndicator: true
@@ -56,6 +57,7 @@ resilience4j:
         slidingWindowType: COUNT_BASED
 
   retry:
+  retryAspectOrder: 2
     instances:
       mascotaService:
         maxAttempts: 3
