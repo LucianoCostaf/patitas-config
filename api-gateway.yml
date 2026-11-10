@@ -70,8 +70,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: health,info
 
   endpoint:
     gateway:
-      enabled: true
+      access: none
