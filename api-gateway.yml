@@ -1,3 +1,4 @@
+
 server:
   port: 8080
 
@@ -28,6 +29,13 @@ spring:
                 allowCredentials: false
 
           routes:
+            # Sprint 14: autenticacion
+            - id: ms-auth
+              uri: lb://ms-auth
+              predicates:
+                - Path=/auth/**
+
+            # Microservicios existentes
             - id: ms-duenio
               uri: lb://ms-duenio
               predicates:
@@ -43,7 +51,6 @@ spring:
               predicates:
                 - Path=/api/veterinarios/**
 
-
             - id: ms-turno
               uri: lb://ms-turno
               predicates:
@@ -55,6 +62,9 @@ spring:
                     redis-rate-limiter.replenishRate: 10
                     redis-rate-limiter.burstCapacity: 20
                     redis-rate-limiter.requestedTokens: 1
+
+jwt:
+  secret: ${JWT_SECRET}
 
 management:
   endpoints:
